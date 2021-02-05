@@ -50,6 +50,8 @@ class StaticFilesTranspilingMiddleware(MiddlewareMixin):
         return HttpResponse(content=result['code'], content_type=self.options['mimetypes'][file_suffix])
 
     def fixup_content_type(self, request, response):
+        if response.status_code != 200:
+            return response
         _, file_suffix = os.path.splitext(request.path)
         response['Content-Type'] = self.options['mimetypes'][file_suffix]
         return response
