@@ -1,1 +1,6 @@
 .idea
+dist
+.DS_Store
+__pycache__
+*.pyc
+django_babel_transpiling.egg-info

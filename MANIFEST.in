@@ -1,0 +1,4 @@
+include README.md
+include babel_transpiling/static/npm/@babel/standalone@7.12.15/babel.min.js
+global-exclude __pycache__
+global-exclude *.py[co]
