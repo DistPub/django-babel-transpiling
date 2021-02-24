@@ -29,6 +29,7 @@ Default options is:
     'transpiler': 'npm/@babel/standalone@7.12.15/babel.min.js',
     'extensions': ['.jsx'],
     'options': {
+        'plugins': ['transform-import-cssm'],
         "presets": ["react"],
         "generatorOpts": {
             "jsescOption": {
@@ -39,7 +40,7 @@ Default options is:
     'mimetypes': {
         '.jsx': 'application/javascript'
     },
-    'setup': None
+    'setup': ['npm/babel-plugin-transform-import-cssm@1.0.0/index.standalone.js']
 }
 ```
 
@@ -81,7 +82,7 @@ BABEL_TRANSPILING = {
     'options': {
         'plugins': ['lolizer']
     },
-    'setup': 'path/to/setup.js'
+    'setup': ['path/to/setup.js']
 }
 ```
 
