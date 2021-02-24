@@ -1,5 +1,6 @@
 import posixpath
 
+import os
 from py_mini_racer import py_mini_racer
 from django.conf import settings
 from django.contrib.staticfiles import finders
@@ -47,7 +48,12 @@ def get_options():
 
 def get_absolute_path(path):
     normalized_path = posixpath.normpath(path).lstrip('/')
-    return finders.find(normalized_path)
+    if settings.DEBUG:
+        return finders.find(normalized_path)
+
+    file = os.path.join(settings.STATIC_ROOT, normalized_path)
+    if os.path.isfile(file):
+        return file
 
 
 def get_file_content(path):
