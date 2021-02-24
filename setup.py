@@ -35,7 +35,7 @@ def get_version(package):
 version = get_version('babel_transpiling')
 
 setup(
-    name='django-babel_transpiling',
+    name='django-babel-transpiling',
     version=version,
     url='https://github.com/DistPub/django-babel-transpiling',
     license='MIT',
