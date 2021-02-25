@@ -48,12 +48,11 @@ def get_options():
 
 def get_absolute_path(path):
     normalized_path = posixpath.normpath(path).lstrip('/')
-    if settings.DEBUG:
-        return finders.find(normalized_path)
-
-    file = os.path.join(settings.STATIC_ROOT, normalized_path)
-    if os.path.isfile(file):
-        return file
+    if not settings.DEBUG:
+        file = os.path.join(settings.STATIC_ROOT, normalized_path)
+        if os.path.isfile(file):
+            return file
+    return finders.find(normalized_path)
 
 
 def get_file_content(path):
